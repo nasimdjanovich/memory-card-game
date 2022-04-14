@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    border-color: rgb(212, 212, 250);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: rgba(131, 58, 100, 1);
+}
+.container{
+    display: none;
+    flex-wrap: wrap;
+    width: 480px;
+    perspective: 1000px; 
+}
+h1{
+	color: rgba(252, 176, 69, 1);
+}
+.card{
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transition: transform 0.4s linear;
+}
+.card .front,
+.card .back{
+    background-color: #fff;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.card.show{
+    transform: rotateY(0deg);
+}
+.card .front{
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+.card .back{
+    transform: rotateY(180deg);
+}
+.card i{
+    font-size: 30px;
+}
+/* Loader style */
+.loader{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 100, 1) 0%, rgba(253, 29, 29, 1) 46%, rgba(252, 176, 69, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    transition: all .5s ease;
+}
+.ring{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: relative;
+}
+.ring::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 5px solid yellow;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@media screen and (max-width: 360px) {
+    .container{
+        width: 100%;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+    .card{
+        width: 70px;
+        height: 70px;
+    }
+    .card i{
+        font-size: 25px;
+    }
+}
