@@ -1,7 +1,7 @@
 # memory-card-game
 Memory Card Game using HTML, CSS and JavaScript
 
-Website link: https://karimjans-card-game.netlify.app
+Website link: https://karimjan-card-game.netlify.app
 
 Telegram: https://t.me/karimjan_webdev
 
